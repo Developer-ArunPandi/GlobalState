@@ -1,12 +1,12 @@
 import { createContext, useReducer } from "react";
 
 const initialStudentData = [
-  { id: 1, name: "Arun", score: 85 },
+  { id: 1, name: "Arun", score: 95 },
   { id: 2, name: "Yuvi", score: 85 },
-  { id: 3, name: "Santhosh", score: 85 },
+  { id: 3, name: "Santhosh", score: 90 },
 ];
 
-export const StudentContext = createContext(initialStudentData);
+export const StudentContext = createContext();
 
 const studentReducer = (state, action) => {
   switch (action.type) {
@@ -22,19 +22,19 @@ const studentReducer = (state, action) => {
           ? { ...student, score: student.score - 1 }
           : student
       );
-      default:
+    default:
       return state;
   }
 };
 
 const StudentProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(studentReducer, initialStudentData)  ;
+  const [students, dispatch] = useReducer(studentReducer, initialStudentData);
 
-    return (
-        <StudentContext.Provider value={{ state, dispatch }}>
-            {children}
-        </StudentContext.Provider>
-    );
+  return (
+    <StudentContext.Provider value={{ students, dispatch }}>
+      {children}
+    </StudentContext.Provider>
+  );
 };
 
 export default StudentProvider;

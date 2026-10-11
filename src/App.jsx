@@ -1,4 +1,5 @@
 import './App.css'
+import  StudentProvider  from './components/reducer-managed/StudentProvider'
 import StudentSummary from './components/reducer-managed/StudentSummary'
 // import UniqueKeys from './components/UniqueKeys.jsx'
 // import IndexKeys from './components/IndexKeys.jsx'
@@ -11,6 +12,7 @@ function App() {
 
   return (
     <>
+    <StudentProvider>
      {/* <StudentsDetails/> */}
      {/* <Dashboard/> */}
      {/* <ThemeToggle/> */}
@@ -18,6 +20,7 @@ function App() {
       {/* <UniqueKeys/>
       <IndexKeys/> */}
       <StudentSummary/>
+    </StudentProvider>
     </>
   )
 }
